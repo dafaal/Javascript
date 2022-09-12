@@ -1,0 +1,75 @@
+<html lang="en">
+<script language="javascript">
+    var nama = "ridwan";
+    var jabatan = "manager";
+    var status = "menikah";
+
+    if (jabatan == "manager") {
+        gaPok = 15000000;
+    }
+    else if (jabatan == "asisten manager") {
+        gaPok = 10000000;
+    }
+    else if (jabatan == "staff") {
+        gaPok = 5000000;
+    }
+    else gaPok = 0;
+
+    let tunJab = 0.15 * gaPok;
+    let bpjs = 0.10 * gaPok;
+
+    let tunGa = (status == "menikah") ? 0.20 * gaPok : 0;
+
+    let total = gaPok + tunJab + bpjs + tunGa;
+
+    document.write(
+        "<table border=0 align=center>" +
+            "<tr>" +
+                "<th>Total Gaji Ridwan</th>" +
+            "</tr>" +
+            "<tr>" +
+                "<td>Nama Pegawai: Ridwan</td>" +
+            "</tr>" +
+            "<tr>" +
+                "<td>Jabatan: Manager</td>" +
+            "</tr>" +
+            "<tr>" +
+                "<td>Status: Menikah</td>" +
+            "</tr>" +
+        "</table>" +          
+        "<table border=1 align=center width=400  height=40 %  cellspacing=0 cellpadding=9>" +
+            "<thead height=60 bgcolor=#b6a18b>" +
+                "<tr>" +
+                    "<th colspan='2' >Detail Gaji Ridwan</th>" +
+                "</tr>" +
+            "</thead>" +
+
+            "<tbody width=70>" +
+                "<tr>" +
+                    "<td>Gaji Pokok</td>" +
+                    "<td>" + 'Rp.' + gaPok + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                    "<td>Tunjangan Jabatan</td>" +
+                    "<td>" + 'Rp.' + tunJab + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                    "<td>BPJS</td>" +
+                    "<td>" + 'Rp.' + bpjs + "</td>" +
+                "</tr>" +
+                "<tr>" +
+                    "<td>Tunjangan Keluarga</td>" +
+                    "<td>" + 'Rp.' + tunGa + "</td>" +
+                "</tr>" +
+            "<tbody>" +
+
+        "<tfoot height=60 bgcolor=#b6a18b>" +
+        "<tr>" +
+            "<th>Gaji Total</th>" +
+            "<th>" + 'Rp.' + total + "</th>" +
+        "</tr>" +
+    "</tfoot>"
+    );
+</script>
+
+</html>
