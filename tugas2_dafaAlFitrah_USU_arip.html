@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <link href="http://fonts.cdnfonts.com/css/jockey-one" rel="stylesheet">
+</head>
+
+<body style="font-family: 'Jockey One', sans-serif;">
+</body>
+<table border="1" cellspacing="0" width=100% cellpadding="10px">
+    <thead style="background-color: #B1B2FF; color: rgb(31, 32, 32);">
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Jabatan</th>
+            <th>Agama</th>
+            <th>Gaji Pokok</th>
+            <th>Tunjangan Jabatan</th>
+            <th>Tunjangan Kesehatan</th>
+            <th>Gaji Kotor</th>
+            <th>Zakat Profesi</th>
+            <th>Take Home Pay</th>
+        </tr>
+    </thead>
+
+    <script>
+        var no, jabatan, agama, warna;
+        let gaPok = 0;
+
+        for (no = 1; no <= 100; no++) {
+            agama = (no % 2 == 1) ? 'Muslim' : 'Non Muslim';
+            warna = (no % 2 == 1) ? '#FFF38C' : '#7FBCD2';
+            if (no <= 25) {
+                jabatan = 'Manager';
+            } else if (no >= 26 && no <= 50) {
+                jabatan = 'Asisten Manager';
+            } else if (no >= 51 && no <= 75) {
+                jabatan = 'Supervisor';
+            } else {
+                jabatan = 'Staff'
+            }
+
+
+            switch (jabatan) {
+                case 'Manager': gaPok = 15000000; break;
+                case 'Asisten Manager': gaPok = 10000000; break;
+                case 'Supervisor': gaPok = 7000000; break;
+                case 'Staff': gaPok = 4000000; break;
+                default: gaPok = ""; break;
+            }
+
+            let tunJab = 0.20 * gaPok;
+            let tunKes = 0.10 * gaPok;
+            let gaTor = gaPok + tunJab + tunKes;
+            let zaProf = (agama == 'Muslim' && gaTor >= 7000000) ? 0.025 * gaTor : 0;
+            let thp = gaTor - zaProf;
+            document.write(
+                `<tbody>
+                <tr bgcolor= ${warna}>
+                    <td>${no}.</td>
+                    <td align="center">Pegawai ${no}</td>
+                    <td align="center">${jabatan}</td>
+                    <td align="center">${agama}</td>
+                    <td align="center">Rp ${gaPok}</td>
+                    <td align="center">Rp ${tunJab}</td>
+                    <td align="center">Rp ${tunKes}</td>
+                    <td align="center">Rp ${gaTor}</td>
+                    <td align="center">Rp ${zaProf}</td>
+                    <td align="center">Rp ${thp}</td>
+                </tr>
+            </tbody>`
+            )
+        }
+    </script>
+
+</table>
+</html>
